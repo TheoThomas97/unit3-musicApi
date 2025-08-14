@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff416c"/>
+      <stop offset="100%" style="stop-color:#ff4b2b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Musical note -->
+  <circle cx="8" cy="24" r="3" fill="url(#grad)"/>
+  <rect x="11" y="8" width="2" height="16" fill="url(#grad)"/>
+  <path d="M11 8 Q15 6 20 8 Q18 10 13 12 Z" fill="url(#grad)"/>
+  
+  <!-- Treble clef -->
+  <path d="M20 8 Q24 6 26 10 Q24 14 22 12 Q24 16 26 20 Q24 24 20 22 Q22 18 24 16" 
+        stroke="url(#grad)" stroke-width="1.5" fill="none"/>
+        
+  <!-- Sound waves -->
+  <path d="M28 10 Q30 12 28 14" stroke="url(#grad)" stroke-width="1" fill="none"/>
+  <path d="M28 16 Q30 18 28 20" stroke="url(#grad)" stroke-width="1" fill="none"/>
+</svg>
