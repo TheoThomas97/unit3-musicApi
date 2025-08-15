@@ -3,8 +3,8 @@
 <div align="center">
   <img src="client/public/favicon.ico" alt="Jukebox Logo" width="120" height="120">
   
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://jukeboxtuenz.netlify.app)
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://jukeboxtuenz.netlify.app)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://jukeboxtunezz.netlify.app)
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://jukeboxtunezz.netlify.app)
   [![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
   [![Node.js](https://img.shields.io/badge/Node.js-Express-green)](https://nodejs.org/)
   [![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)](https://mongodb.com/)
@@ -71,11 +71,11 @@ Jukebox is a collaborative music library platform where users can discover, orga
 
 ## 🌐 Live Demo
 
-Experience Jukebox in action: **[jukeboxtuenz.netlify.app](https://jukeboxtuenz.netlify.app)**
+Experience Jukebox in action: **[jukeboxtunezz.netlify.app](https://jukeboxtunezz.netlify.app)**
 
 ## 🎵 Getting Started
 
-1. **Visit the App**: Go to [jukeboxtuenz.netlify.app](https://jukeboxtuenz.netlify.app)
+1. **Visit the App**: Go to [jukeboxtunezz.netlify.app](https://jukeboxtunezz.netlify.app)
 2. **Create Account**: Sign up with your preferred username and password
 3. **Add Songs**: Start building your music library by adding your favorite tracks
 4. **Explore**: Browse songs from other users and discover new music
@@ -117,7 +117,7 @@ Experience Jukebox in action: **[jukeboxtuenz.netlify.app](https://jukeboxtuenz.
 
 <div align="center">
   <p><strong>Start building your music library today!</strong></p>
-  <p>Visit <a href="https://jukeboxtuenz.netlify.app">Jukebox</a> and join the community of music enthusiasts.</p>
+  <p>Visit <a href="https://jukeboxtunezz.netlify.app">Jukebox</a> and join the community of music enthusiasts.</p>
   
   <br>
   
