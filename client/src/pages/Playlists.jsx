@@ -4,6 +4,34 @@ import api from '../api';
 import { useAuth } from '../auth/AuthContext';
 
 export default function Playlists() {
+
+  // Force black text in all input fields - CSS injection
+  useEffect(() => {
+    const styleId = "force-black-text-playlist";
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.innerHTML = `
+        .playlist-form input[type="text"], .playlist-form textarea {
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+          -moz-text-fill-color: #000000 !important;
+          caret-color: #000000 !important;
+          opacity: 1 !important;
+          background-color: #ffffff !important;
+        }
+        .playlist-form input[type="text"]:focus, .playlist-form textarea:focus {
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+        }
+        .playlist-form input[type="text"]::placeholder, .playlist-form textarea::placeholder {
+          color: #666666 !important;
+          opacity: 0.7 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
   const { token } = useAuth();
   const [playlists, setPlaylists] = useState([]);
   const [songs, setSongs] = useState([]);
@@ -166,6 +194,7 @@ export default function Playlists() {
       {(showCreateForm || editingPlaylist) && (
         <form 
           onSubmit={editingPlaylist ? updatePlaylist : createPlaylist}
+          className="playlist-form"
           style={{ 
             backgroundColor: '#ffffff', 
             padding: 20, 
@@ -208,19 +237,23 @@ export default function Playlists() {
                 border: '2px solid #e9ecef', 
                 borderRadius: 8,
                 fontSize: '16px',
-                color: '#000000',
+                color: '#000000 !important',
                 backgroundColor: '#ffffff',
                 boxSizing: 'border-box',
                 transition: 'all 0.3s ease',
-                outline: 'none'
+                outline: 'none',
+                WebkitTextFillColor: '#000000',
+                caretColor: '#000000'
               }}
               onFocus={(e) => {
                 e.target.style.borderColor = '#007bff';
                 e.target.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
+                e.target.style.color = '#000000';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = '#e9ecef';
                 e.target.style.boxShadow = 'none';
+                e.target.style.color = '#000000';
               }}
             />
           </div>
@@ -246,21 +279,25 @@ export default function Playlists() {
                 border: '2px solid #e9ecef', 
                 borderRadius: 8,
                 fontSize: '16px',
-                color: '#000000',
+                color: '#000000 !important',
                 backgroundColor: '#ffffff',
                 boxSizing: 'border-box',
                 resize: 'vertical',
                 fontFamily: 'inherit',
                 transition: 'all 0.3s ease',
-                outline: 'none'
+                outline: 'none',
+                WebkitTextFillColor: '#000000',
+                caretColor: '#000000'
               }}
               onFocus={(e) => {
                 e.target.style.borderColor = '#007bff';
                 e.target.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
+                e.target.style.color = '#000000';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = '#e9ecef';
                 e.target.style.boxShadow = 'none';
+                e.target.style.color = '#000000';
               }}
             />
           </div>
