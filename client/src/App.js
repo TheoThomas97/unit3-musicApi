@@ -7,6 +7,52 @@ export default function App() {
 
   const [songs, setSongs] = useState([]);
 
+  // CSS styles for better dropdown visibility
+  const selectStyle = {
+    padding: "8px 12px",
+    borderRadius: "6px",
+    border: "2px solid #ddd",
+    backgroundColor: "#ffffff",
+    color: "#000000",
+    fontSize: "14px",
+    fontWeight: "500",
+    cursor: "pointer",
+    outline: "none",
+    minWidth: "120px",
+    appearance: "none",
+    WebkitAppearance: "none",
+    MozAppearance: "none",
+    backgroundImage: "url("data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 4 5\"><path fill=\"%23666\" d=\"M2 0L0 2h4zm0 5L0 3h4z\"/></svg>")",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "right 8px center",
+    backgroundSize: "12px",
+    paddingRight: "28px"
+  };
+
+  const selectFocusStyle = {
+
+  const optionStyle = {
+
+  const inputStyle = {
+    padding: "8px 12px",
+    borderRadius: "6px",
+    border: "2px solid #ddd",
+    backgroundColor: "#ffffff",
+    color: "#000000",
+    fontSize: "14px",
+    fontWeight: "500",
+    outline: "none",
+    minWidth: "120px"
+  };
+    color: "#000000",
+    backgroundColor: "#ffffff",
+    padding: "8px 12px",
+    fontSize: "14px"
+  };
+    borderColor: "#007bff",
+    boxShadow: "0 0 0 3px rgba(0, 123, 255, 0.1)"
+  };
+
   const [form, setForm] = useState({ title: '', artist: '', genre: '', year: '' });
 
   const [search, setSearch] = useState('');
@@ -28,6 +74,38 @@ export default function App() {
   }, [search, genre, page, limit, sort]);
 
   useEffect(() => { load(); }, [load]);
+
+  // CSS injection for dropdown options
+  useEffect(() => {
+    const styleId = "dropdown-options-style";
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.innerHTML = `
+        select {
+          color: #000000 !important;
+          background-color: #ffffff !important;
+          border: 2px solid #ddd !important;
+          padding: 8px 12px !important;
+          border-radius: 6px !important;
+          font-size: 14px !important;
+          font-weight: 500 !important;
+        }
+        select option {
+          color: #000000 !important;
+          background-color: #ffffff !important;
+          padding: 8px 12px !important;
+          font-size: 14px !important;
+        }
+        select:focus {
+          border-color: #007bff !important;
+          box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+          outline: none !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
 
   const create = async (e) => {
     e.preventDefault();
@@ -52,27 +130,52 @@ export default function App() {
       <h1>Jukebox</h1>
 
       <div className="filters-grid">
-        <input placeholder="Search title…" value={search} onChange={(e)=>setSearch(e.target.value)} />
-        <select value={genre} onChange={(e)=>setGenre(e.target.value)}>
-          <option value="">All genres</option>
-          <option value="rock">Rock</option>
-          <option value="pop">Pop</option>
-          <option value="jazz">Jazz</option>
-          <option value="hip hop">Hip Hop</option>
-          <option value="r&b">R&B</option>
+        <input 
+          placeholder="Search title…" 
+          value={search} 
+          onChange={(e)=>setSearch(e.target.value)}
+          style={inputStyle}
+          onFocus={(e) => Object.assign(e.target.style, selectFocusStyle)}
+          onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+        />
+        <select 
+          value={genre} 
+          onChange={(e)=>setGenre(e.target.value)}
+          style={selectStyle}
+          onFocus={(e) => Object.assign(e.target.style, selectFocusStyle)}
+          onBlur={(e) => Object.assign(e.target.style, selectStyle)}
+        >
+          <option style={optionStyle} value="">All genres</option>
+          <option style={optionStyle} value="rock">Rock</option>
+          <option style={optionStyle} value="pop">Pop</option>
+          <option style={optionStyle} value="jazz">Jazz</option>
+          <option style={optionStyle} value="hip hop">Hip Hop</option>
+          <option style={optionStyle} value="r&b">R&B</option>
         </select>
-        <select value={sort} onChange={(e)=>setSort(e.target.value)}>
-          <option value="-createdAt">Newest</option>
-          <option value="createdAt">Oldest</option>
-          <option value="year">Year ↑</option>
-          <option value="-year">Year ↓</option>
-          <option value="title">Title A–Z</option>
-          <option value="-title">Title Z–A</option>
+        <select 
+          value={sort} 
+          onChange={(e)=>setSort(e.target.value)}
+          style={selectStyle}
+          onFocus={(e) => Object.assign(e.target.style, selectFocusStyle)}
+          onBlur={(e) => Object.assign(e.target.style, selectStyle)}
+        >
+          <option style={optionStyle} value="-createdAt">Newest</option>
+          <option style={optionStyle} value="createdAt">Oldest</option>
+          <option style={optionStyle} value="year">Year ↑</option>
+          <option style={optionStyle} value="-year">Year ↓</option>
+          <option style={optionStyle} value="title">Title A–Z</option>
+          <option style={optionStyle} value="-title">Title Z–A</option>
         </select>
-        <select value={limit} onChange={(e)=>setLimit(Number(e.target.value))}>
-          <option value={5}>5 / page</option>
-          <option value={10}>10 / page</option>
-          <option value={20}>20 / page</option>
+        <select 
+          value={limit} 
+          onChange={(e)=>setLimit(Number(e.target.value))}
+          style={selectStyle}
+          onFocus={(e) => Object.assign(e.target.style, selectFocusStyle)}
+          onBlur={(e) => Object.assign(e.target.style, selectStyle)}
+        >
+          <option style={optionStyle} value={5}>5 / page</option>
+          <option style={optionStyle} value={10}>10 / page</option>
+          <option style={optionStyle} value={20}>20 / page</option>
         </select>
       </div>
       <button onClick={()=>{ setPage(1); load(); }} className="apply-btn">Apply</button>
