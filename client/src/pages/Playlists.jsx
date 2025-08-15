@@ -167,32 +167,122 @@ export default function Playlists() {
         <form 
           onSubmit={editingPlaylist ? updatePlaylist : createPlaylist}
           style={{ 
-            backgroundColor: '#f8f9fa', 
-            padding: 16, 
-            borderRadius: 8, 
+            backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+            padding: 20, 
+            borderRadius: 12, 
             marginBottom: 20,
             display: 'grid',
-            gap: 12
+            gap: 16,
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
           }}
         >
-          <h3>{editingPlaylist ? 'Edit Playlist' : 'Create New Playlist'}</h3>
-          <input
-            type="text"
-            placeholder="Playlist name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-            style={{ padding: 8, border: '1px solid #ddd', borderRadius: 4 }}
-          />
-          <textarea
-            placeholder="Description (optional)"
-            value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
-            rows={3}
-            style={{ padding: 8, border: '1px solid #ddd', borderRadius: 4 }}
-          />
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button type="submit" style={{ padding: '8px 16px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: 4 }}>
+          <h3 style={{ 
+            margin: '0 0 8px 0', 
+            color: '#333', 
+            fontSize: '18px',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
+          }}>
+            {editingPlaylist ? 'Edit Playlist' : 'Create New Playlist'}
+          </h3>
+          
+          <div>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '6px', 
+              fontWeight: 'bold', 
+              color: '#2c3e50',
+              fontSize: '14px'
+            }}>
+              Playlist Name *
+            </label>
+            <input
+              type="text"
+              placeholder="Enter playlist name..."
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              required
+              style={{ 
+                width: '100%',
+                padding: '12px 16px', 
+                border: '2px solid #e9ecef', 
+                borderRadius: 8,
+                fontSize: '16px',
+                color: '#2c3e50',
+                backgroundColor: '#fff',
+                boxSizing: 'border-box',
+                transition: 'all 0.3s ease',
+                outline: 'none'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#007bff';
+                e.target.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e9ecef';
+                e.target.style.boxShadow = 'none';
+              }}
+            />
+          </div>
+          
+          <div>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '6px', 
+              fontWeight: 'bold', 
+              color: '#2c3e50',
+              fontSize: '14px'
+            }}>
+              Description (Optional)
+            </label>
+            <textarea
+              placeholder="Describe your playlist..."
+              value={form.description}
+              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              rows={3}
+              style={{ 
+                width: '100%',
+                padding: '12px 16px', 
+                border: '2px solid #e9ecef', 
+                borderRadius: 8,
+                fontSize: '16px',
+                color: '#2c3e50',
+                backgroundColor: '#fff',
+                boxSizing: 'border-box',
+                resize: 'vertical',
+                fontFamily: 'inherit',
+                transition: 'all 0.3s ease',
+                outline: 'none'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#007bff';
+                e.target.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e9ecef';
+                e.target.style.boxShadow = 'none';
+              }}
+            />
+          </div>
+          
+          <div style={{ display: 'flex', gap: 12, marginTop: '8px' }}>
+            <button 
+              type="submit" 
+              style={{ 
+                padding: '12px 24px', 
+                backgroundColor: '#28a745', 
+                color: 'white', 
+                border: 'none', 
+                borderRadius: 8,
+                fontWeight: 'bold',
+                fontSize: '16px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
+            >
               {editingPlaylist ? 'Update' : 'Create'}
             </button>
             <button 
@@ -201,7 +291,20 @@ export default function Playlists() {
                 setShowCreateForm(false);
                 cancelEdit();
               }}
-              style={{ padding: '8px 16px', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: 4 }}
+              style={{ 
+                padding: '12px 24px', 
+                backgroundColor: '#6c757d', 
+                color: 'white', 
+                border: 'none', 
+                borderRadius: 8,
+                fontWeight: 'bold',
+                fontSize: '16px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#5a6268'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#6c757d'}
             >
               Cancel
             </button>
