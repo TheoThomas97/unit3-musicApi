@@ -167,21 +167,21 @@ export default function Playlists() {
         <form 
           onSubmit={editingPlaylist ? updatePlaylist : createPlaylist}
           style={{ 
-            backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+            backgroundColor: '#ffffff', 
             padding: 20, 
             borderRadius: 12, 
             marginBottom: 20,
             display: 'grid',
             gap: 16,
-            border: '2px solid rgba(255, 255, 255, 0.3)',
+            border: '2px solid rgba(0, 0, 0, 0.1)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
           }}
         >
           <h3 style={{ 
             margin: '0 0 8px 0', 
-            color: '#333', 
+            color: '#000000', 
             fontSize: '18px',
-            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
+            fontWeight: 'bold'
           }}>
             {editingPlaylist ? 'Edit Playlist' : 'Create New Playlist'}
           </h3>
@@ -191,7 +191,7 @@ export default function Playlists() {
               display: 'block', 
               marginBottom: '6px', 
               fontWeight: 'bold', 
-              color: '#2c3e50',
+              color: '#000000',
               fontSize: '14px'
             }}>
               Playlist Name *
@@ -208,8 +208,8 @@ export default function Playlists() {
                 border: '2px solid #e9ecef', 
                 borderRadius: 8,
                 fontSize: '16px',
-                color: '#2c3e50',
-                backgroundColor: '#fff',
+                color: '#000000',
+                backgroundColor: '#ffffff',
                 boxSizing: 'border-box',
                 transition: 'all 0.3s ease',
                 outline: 'none'
@@ -230,7 +230,7 @@ export default function Playlists() {
               display: 'block', 
               marginBottom: '6px', 
               fontWeight: 'bold', 
-              color: '#2c3e50',
+              color: '#000000',
               fontSize: '14px'
             }}>
               Description (Optional)
@@ -246,8 +246,8 @@ export default function Playlists() {
                 border: '2px solid #e9ecef', 
                 borderRadius: 8,
                 fontSize: '16px',
-                color: '#2c3e50',
-                backgroundColor: '#fff',
+                color: '#000000',
+                backgroundColor: '#ffffff',
                 boxSizing: 'border-box',
                 resize: 'vertical',
                 fontFamily: 'inherit',
@@ -277,8 +277,7 @@ export default function Playlists() {
                 fontWeight: 'bold',
                 fontSize: '16px',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+                transition: 'all 0.3s ease'
               }}
               onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
               onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
@@ -300,8 +299,7 @@ export default function Playlists() {
                 fontWeight: 'bold',
                 fontSize: '16px',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+                transition: 'all 0.3s ease'
               }}
               onMouseOver={(e) => e.target.style.backgroundColor = '#5a6268'}
               onMouseOut={(e) => e.target.style.backgroundColor = '#6c757d'}
@@ -310,9 +308,7 @@ export default function Playlists() {
             </button>
           </div>
         </form>
-      )}
-
-      {}
+      )}      {}
       <div style={{ display: 'grid', gap: 16 }}>
         {playlists.length === 0 ? (
           <p>No playlists yet. Create your first playlist!</p>
